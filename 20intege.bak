@@ -1,0 +1,16 @@
+
+#include<stdio.h>
+void main()
+	{
+		int swift[20];
+		int count,total=0;
+		for(count=0;count<=19;count++)
+			{
+				printf("\nenter your marks:");
+				scanf("%d",&swift[count]);
+				total=total+swift[count];
+			}
+		printf("\ntotal marks:%d",total);
+		printf("\ntotal average:%d",total/20);
+
+	}

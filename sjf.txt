@@ -1,0 +1,46 @@
+#include<iostream.h>
+void main()
+{
+int n,i,j,a[10],wt=0,tt=0,seq[10],temp,awt=0,att=0;
+cout<<"enter a no. of process";
+cin>>n;
+for(i=0;i<n;i++)
+{
+cout<<"enter a burst time for p"<<(i+1);
+cin>>a[i];
+}
+for(i=0;i<n;i++)
+{
+seq[i]=i+1;
+}
+for(i=0;i<n;i++)
+{
+for(j=(i+1);j<n;j++)
+{
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+temp=seq[i];
+seq[i]=seq[j];
+seq[j]=temp;
+}
+}
+}
+cout<<"Waiting time for "<<seq[0]<<" is "<<wt;
+for(i=0;i<n-1;i++)
+{
+wt=wt+a[i];
+cout<<"\nWaiting time for "<<seq[i+1]<<" is "<<wt;
+awt=awt+wt;
+}
+cout<<"\nAverage waiting time is"<<awt/(float)n;
+for(i=0;i<n;i++)
+{
+tt=tt+a[i];
+cout<<"\nTurn Around time for "<<seq[i]<<"is"<<tt;
+att=att+tt;
+}
+cout<<"\nAverage turn around time is "<<att/(float)n;
+}
